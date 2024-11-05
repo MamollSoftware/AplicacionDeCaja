@@ -95,19 +95,24 @@
         /* Íconos de contacto */
         .contact-icons {
             position: absolute;
-            right: 20px;
-            top: 80px; /* Espaciado debajo del botón de carrito */
+            left: 20px; /* Colocamos a la izquierda */
+            top: 80px; /* Espaciado debajo del encabezado */
             display: flex;
-            gap: 15px;
+            flex-direction: column; /* Apilados verticalmente */
+            gap: 10px; /* Espacio entre iconos */
+            color: #fff;
         }
         .contact-icon {
-            color: #fff;
+            display: flex;
+            align-items: center;
             text-decoration: none;
+            color: #fff;
             font-size: 1.2em;
         }
         .contact-icon img {
             width: 30px;
             height: 30px;
+            margin-right: 10px; /* Espaciado entre el ícono y el texto */
         }
 
         /* Contenido principal */
@@ -182,19 +187,6 @@
         <h1>Mamoll Software</h1>
         <p>Soluciones de Software para Caja y Gestión de Stock</p>
 
-        <!-- Íconos de contacto -->
-        <div class="contact-icons">
-            <a href="mailto:soporte@mamollsoftware.com" class="contact-icon" title="Contacto Técnico">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/technical-support.png" alt="Contacto Técnico">
-            </a>
-            <a href="mailto:ventas@mamollsoftware.com" class="contact-icon" title="Contacto Ventas">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/sales-performance.png" alt="Contacto Ventas">
-            </a>
-            <a href="https://www.mamollsoftware.com/documentacion" class="contact-icon" title="Documentación">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/document.png" alt="Documentación">
-            </a>
-        </div>
-
         <!-- Botón de carrito -->
         <a href="https://mamoll.mitiendanube.com/?exit_preview_theme_installation=true" class="cart-button">
             <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito de Compras" width="30" height="30">
@@ -207,6 +199,19 @@
             <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/v1.0/Mamoll.Setup.10.0.1.exe" class="download-button">Descargar Aplicación</a>
         </div>
     </header>
+
+    <!-- Íconos de contacto -->
+    <div class="contact-icons">
+        <a href="mailto:soporte@mamollsoftware.com" class="contact-icon" title="Contacto Técnico">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/technical-support.png" alt="Contacto Técnico"> Soporte Técnico
+        </a>
+        <a href="mailto:ventas@mamollsoftware.com" class="contact-icon" title="Contacto Ventas">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/sales-performance.png" alt="Contacto Ventas"> Ventas
+        </a>
+        <a href="https://www.mamollsoftware.com/documentacion" class="contact-icon" title="Documentación">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/document.png" alt="Documentación"> Documentación
+        </a>
+    </div>
 
     <!-- Contenido principal -->
     <div class="content">
@@ -233,11 +238,17 @@
             <div class="feature-item">
                 <img src="img/seguridad-datos.jpg" alt="Seguridad de Datos">
                 <h3>Seguridad de Datos</h3>
-                <p>Tus datos están protegidos con cifrado avanzado para que puedas gestionar tu negocio con confianza.</p>
+                <p>Con tecnologías de encriptación, garantizamos que tus datos estén siempre seguros y protegidos.</p>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Mamoll Software. Todos los derechos reservados.</p>
+    </footer>
+    
+</body>
+</html>
+
 
