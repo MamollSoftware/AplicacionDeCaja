@@ -37,7 +37,22 @@
             margin-top: 10px;
         }
 
-        /* Botón de descarga destacado */
+        /* Contenedor del botón y versión */
+        .download-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Texto de versión */
+        .version-text {
+            font-size: 1.2em;
+            color: #ddd;
+        }
+
+        /* Botón de descarga */
         .download-button {
             display: inline-block;
             padding: 16px 28px;
@@ -48,7 +63,6 @@
             border-radius: 50px;
             text-decoration: none;
             transition: background-color 0.3s;
-            margin-top: 20px;
         }
         .download-button:hover {
             background-color: #218838;
@@ -126,8 +140,11 @@
         <h1>Mamoll Software</h1>
         <p>Soluciones de Software para Caja y Gestión de Stock</p>
 
-        <!-- Botón de descarga destacado -->
-        <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/v1.0/Mamoll.Setup.10.0.1.exe" class="download-button">Descargar Aplicación</a>
+        <!-- Contenedor del botón y versión -->
+        <div class="download-container">
+            <span class="version-text">Versión: v10.0.1</span>
+            <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/v1.0/Mamoll.Setup.10.0.1.exe" class="download-button">Descargar Aplicación</a>
+        </div>
     </header>
 
     <!-- Contenido principal -->
@@ -167,5 +184,4 @@
 
 </body>
 </html>
-
 
