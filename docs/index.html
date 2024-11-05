@@ -28,14 +28,18 @@
             text-align: center;
             color: #fff;
             position: relative; /* Para poder usar el botón absoluto */
+            border-bottom: 5px solid #003d7a; /* Línea inferior para separación */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         header h1 {
             font-size: 2.8em;
             font-weight: bold;
+            margin-bottom: 10px;
         }
         header p {
             font-size: 1.2em;
             margin-top: 10px;
+            opacity: 0.9; /* Menos opacidad para un efecto más suave */
         }
 
         /* Botón de carrito */
@@ -52,6 +56,7 @@
             border-radius: 50px;
             text-decoration: none;
             transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .cart-button:hover {
             background-color: #0056b3;
@@ -68,12 +73,17 @@
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap; /* Para que se acomode en pantallas pequeñas */
         }
 
         /* Texto de versión */
         .version-text {
             font-size: 1.2em;
             color: #ddd;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #007bff; /* Bordes para dar contraste */
         }
 
         /* Botón de descarga */
@@ -87,6 +97,7 @@
             border-radius: 50px;
             text-decoration: none;
             transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .download-button:hover {
             background-color: #218838;
@@ -108,6 +119,10 @@
             text-decoration: none;
             color: #fff;
             font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+        .contact-icon:hover {
+            transform: scale(1.1); /* Efecto de hover */
         }
         .contact-icon img {
             width: 30px;
@@ -221,22 +236,22 @@
         <!-- Sección de características con imágenes -->
         <div class="features">
             <div class="feature-item">
-                <img src="img/optimizacion-caja.jpg" alt="Optimización de Caja">
-                <h3>Optimización de Caja</h3>
-                <p>Facilita el proceso de ventas y obtén reportes detallados para mantener un control efectivo de tus ingresos y egresos.</p>
+                <img src="https://img.icons8.com/ios-filled/100/000000/receipt.png" alt="Gestión de Caja">
+                <h3>Gestión de Caja</h3>
+                <p>Maneja tus transacciones de forma fácil y rápida.</p>
             </div>
             <div class="feature-item">
-                <img src="img/gestion-stock.jpg" alt="Gestión de Stock">
-                <h3>Gestión de Stock</h3>
-                <p>Mantén tu inventario al día, controla existencias y recibe alertas para reabastecer productos de forma inteligente.</p>
+                <img src="https://img.icons8.com/ios-filled/100/000000/warehouse.png" alt="Control de Stock">
+                <h3>Control de Stock</h3>
+                <p>Monitorea tu inventario y evita quiebras.</p>
             </div>
             <div class="feature-item">
-                <img src="img/interfaz-intuitiva.jpg" alt="Interfaz Intuitiva">
-                <h3>Interfaz Intuitiva</h3>
-                <p>Con una interfaz amigable, nuestra aplicación es accesible y fácil de usar para todo tu equipo.</p>
+                <img src="https://img.icons8.com/ios-filled/100/000000/data-sheet.png" alt="Informes Avanzados">
+                <h3>Informes Avanzados</h3>
+                <p>Obtén reportes detallados y optimiza tus decisiones.</p>
             </div>
             <div class="feature-item">
-                <img src="img/seguridad-datos.jpg" alt="Seguridad de Datos">
+                <img src="https://img.icons8.com/ios-filled/100/000000/security.png" alt="Seguridad de Datos">
                 <h3>Seguridad de Datos</h3>
                 <p>Con tecnologías de encriptación, garantizamos que tus datos estén siempre seguros y protegidos.</p>
             </div>
