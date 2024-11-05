@@ -24,31 +24,31 @@
         header {
             background-color: #0056b3;
             width: 100%;
-            padding: 1px 20px;
+            padding: 10px 20px;
             text-align: center;
             color: #fff;
-            position: relative; /* Para poder usar el botón absoluto */
-            border-bottom: 5px solid #003d7a; /* Línea inferior para separación */
+            position: relative;
+            border-bottom: 5px solid #003d7a;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         header img {
-            max-width: 200px; /* Ajusta el tamaño de la imagen */
-            height: auto; /* Mantiene la relación de aspecto */
-            margin-bottom: 10px; /* Espaciado debajo de la imagen */
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
         }
         header p {
             font-size: 1.2em;
             margin-top: 10px;
-            opacity: 0.9; /* Menos opacidad para un efecto más suave */
+            opacity: 0.9;
         }
 
         /* Botón de carrito */
         .cart-button {
-            position: absolute; /* Posición absoluta */
-            right: 20px; /* Espaciado desde el borde derecho */
-            top: 20px; /* Espaciado desde la parte superior */
+            position: absolute;
+            right: 20px;
+            top: 20px;
             display: inline-block;
-            padding: 08px 20px;
+            padding: 8px 20px;
             font-size: 1.2em;
             color: #fff;
             background-color: #007bff;
@@ -58,12 +58,119 @@
             transition: background-color 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .cart-button:hover {
-            background-color: #0056b3;
-        }
         .cart-button img {
             vertical-align: middle;
             margin-right: 10px;
+        }
+
+        /* Íconos de contacto */
+        .contact-icons {
+            position: absolute;
+            right: 60px;
+            top: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: #fff;
+            background-color: #0056b3;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+        .contact-icon img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        /* Menu Hamburguesa */
+        .menu-toggle {
+            display: block; /* Cambiado a block para que esté siempre visible */
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        /* Menú desplegable para móviles */
+        .menu-dropdown {
+            display: block; /* Cambiado a block para que se muestre al iniciar */
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            background-color: #0056b3;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: opacity 0.3s ease; /* Transición suave */
+        }
+        .menu-dropdown a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        .menu-dropdown a:hover {
+            background-color: #007bff;
+        }
+
+        /* Estilos para el contenido */
+        .content {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .feature-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item img {
+            margin-bottom: 10px;
+        }
+
+        /* Estilos responsive */
+        @media (max-width: 768px) {
+            .cart-button, .contact-icons {
+                display: none;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature-item {
+                width: 90%;
+            }
         }
 
         /* Contenedor del botón y versión */
@@ -103,120 +210,13 @@
             background-color: #218838;
         }
 
-   /* Íconos de contacto */
-   /*
-   .contact-icons {
-            position: absolute;
-            right: 60px; 
-            top: 120px; 
-            display: flex;
-            flex-direction: column; 
-            gap: 10px; 
-            color: #fff;
-        }
-*/
-        .contact-icon {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.2em;
-            transition: transform 0.3s;
-        }
-/* Íconos de contacto */
-.contact-icons {
-    position: absolute;
-    right: 60px; /* Posición desde la derecha */
-    top: 120px; /* Posición desde la parte superior */
-    display: flex;
-    flex-direction: column; /* Apilados verticalmente */
-    gap: 10px; /* Espacio entre iconos */
-    color: #fff;
-    background-color: #0056b3; /* Fondo rojo para el contenedor */
-    padding: 10px; /* Espacio interior para que el fondo rojo rodee los iconos */
-    border-radius: 8px; /* Bordes redondeados */
-}
-
-        
-        .contact-icon:hover {
-            transform: scale(1.1); /* Efecto de hover */
-        }
-        .contact-icon img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px; /* Espaciado entre el ícono y el texto */
-        }
-
-        /* Contenido principal */
-        .content {
-            width: 90%;
-            max-width: 1100px;
-            text-align: center;
-            padding: 30px;
-            margin-top: 80px; /* Aumentamos el margen superior para que no se superponga */
-            background-color: #fff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .content h2 {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .content p {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        /* Sección de características */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .feature-item {
-            background-color: #e9ecef;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .feature-item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px 8px 0 0;
-        }
-        .feature-item h3 {
-            font-size: 1.4em;
-            color: #333;
-            margin-top: 15px;
-        }
-        .feature-item p {
-            font-size: 1em;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            width: 100%;
-            text-align: center;
-            margin-top: 40px;
-        }
     </style>
 </head>
 <body>
 
     <!-- Encabezado -->
     <header>
-        <img src="./imagenes/m.png" alt="Logo Mamoll Software"> <!-- Reemplaza con la ruta de tu imagen -->
+        <img src="./imagenes/m.png" alt="Logo Mamoll Software">
         <p>Soluciones de Software para Caja y Gestión de Stock</p>
 
         <!-- Botón de carrito -->
@@ -224,26 +224,20 @@
             <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito de Compras" width="30" height="30">
             Comprar Aplicación
         </a>
-
         <!-- Contenedor del botón y versión -->
         <div class="download-container">
             <span class="version-text">Versión: v10.0.1</span>
             <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/v1.0/Mamoll.Setup.10.0.1.exe" class="download-button">Descargar Aplicación</a>
         </div>
+        <!-- Botón menú hamburguesa -->
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <!-- Menú desplegable -->
+        <div id="menu-dropdown" class="menu-dropdown">
+            <a href="mailto:soporte@mamollsoftware.com">Soporte Técnico</a>
+            <a href="mailto:ventas@mamollsoftware.com">Ventas</a>
+            <a href="https://www.mamollsoftware.com/documentacion">Documentación</a>
+        </div>
     </header>
-
-    <!-- Íconos de contacto -->
-    <div class="contact-icons">
-        <a href="mailto:soporte@mamollsoftware.com" class="contact-icon" title="Contacto Técnico">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/technical-support.png" alt="Contacto Técnico"> Soporte Técnico
-        </a>
-        <a href="mailto:ventas@mamollsoftware.com" class="contact-icon" title="Contacto Ventas">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/sales-performance.png" alt="Contacto Ventas"> Ventas
-        </a>
-        <a href="https://www.mamollsoftware.com/documentacion" class="contact-icon" title="Documentación">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/document.png" alt="Documentación"> Documentación
-        </a>
-    </div>
 
     <!-- Contenido principal -->
     <div class="content">
@@ -261,17 +255,24 @@
                 <p>Monitorea tu inventario y evita quiebras.</p>
             </div>
             <div class="feature-item">
-                <img src="https://img.icons8.com/ios-filled/100/000000/data-sheet.png" alt="Informes Avanzados">
-                <h3>Informes Avanzados</h3>
-                <p>Obtén reportes detallados y optimiza tus decisiones.</p>
+                <img src="https://img.icons8.com/ios-filled/100/000000/report.png" alt="Reportes">
+                <h3>Reportes Detallados</h3>
+                <p>Genera reportes que te ayudarán a tomar mejores decisiones.</p>
             </div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Mamoll Software. Todos los derechos reservados.</p>
-    </footer>
-    
+
+    <script>
+        // Función para alternar la visibilidad del menú
+        function toggleMenu() {
+            const menu = document.getElementById('menu-dropdown');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
-
 
