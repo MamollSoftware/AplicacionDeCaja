@@ -24,17 +24,17 @@
         header {
             background-color: #0056b3;
             width: 100%;
-            padding: 40px 20px;
+            padding: 1px 20px;
             text-align: center;
             color: #fff;
             position: relative; /* Para poder usar el botón absoluto */
             border-bottom: 5px solid #003d7a; /* Línea inferior para separación */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        header h1 {
-            font-size: 2.8em;
-            font-weight: bold;
-            margin-bottom: 10px;
+        header img {
+            max-width: 200px; /* Ajusta el tamaño de la imagen */
+            height: auto; /* Mantiene la relación de aspecto */
+            margin-bottom: 10px; /* Espaciado debajo de la imagen */
         }
         header p {
             font-size: 1.2em;
@@ -48,7 +48,7 @@
             right: 20px; /* Espaciado desde el borde derecho */
             top: 20px; /* Espaciado desde la parte superior */
             display: inline-block;
-            padding: 10px 20px;
+            padding: 08px 20px;
             font-size: 1.2em;
             color: #fff;
             background-color: #007bff;
@@ -103,16 +103,17 @@
             background-color: #218838;
         }
 
-        /* Íconos de contacto */
-        .contact-icons {
+   /* Íconos de contacto */
+   .contact-icons {
             position: absolute;
-            left: 20px; /* Colocamos a la izquierda */
-            top: 80px; /* Espaciado debajo del encabezado */
+            right: 60px; /* Colocamos a la izquierda */
+            top: 120px; /* Espaciado debajo del encabezado */
             display: flex;
             flex-direction: column; /* Apilados verticalmente */
             gap: 10px; /* Espacio entre iconos */
             color: #fff;
         }
+
         .contact-icon {
             display: flex;
             align-items: center;
@@ -121,6 +122,8 @@
             font-size: 1.2em;
             transition: transform 0.3s;
         }
+
+        
         .contact-icon:hover {
             transform: scale(1.1); /* Efecto de hover */
         }
@@ -199,7 +202,7 @@
 
     <!-- Encabezado -->
     <header>
-        <h1>Mamoll Software</h1>
+        <img src="./imagenes/m.png" alt="Logo Mamoll Software"> <!-- Reemplaza con la ruta de tu imagen -->
         <p>Soluciones de Software para Caja y Gestión de Stock</p>
 
         <!-- Botón de carrito -->
@@ -230,10 +233,8 @@
 
     <!-- Contenido principal -->
     <div class="content">
-        <h2>Bienvenido a Mamoll Software</h2>
-        <p>Descubre nuestras soluciones para la administración de caja y stock que mejorarán la eficiencia y control de tu negocio. Simplificamos tu gestión y te damos control total sobre tus operaciones diarias.</p>
-        
-        <!-- Sección de características con imágenes -->
+        <h2>Características Destacadas</h2>
+        <p>Explora las potentes herramientas que ofrecemos para mejorar tu gestión empresarial.</p>
         <div class="features">
             <div class="feature-item">
                 <img src="https://img.icons8.com/ios-filled/100/000000/receipt.png" alt="Gestión de Caja">
@@ -250,20 +251,12 @@
                 <h3>Informes Avanzados</h3>
                 <p>Obtén reportes detallados y optimiza tus decisiones.</p>
             </div>
-            <div class="feature-item">
-                <img src="https://img.icons8.com/ios-filled/100/000000/security.png" alt="Seguridad de Datos">
-                <h3>Seguridad de Datos</h3>
-                <p>Con tecnologías de encriptación, garantizamos que tus datos estén siempre seguros y protegidos.</p>
-            </div>
         </div>
     </div>
-
-    <!-- Pie de página -->
     <footer>
         <p>&copy; 2024 Mamoll Software. Todos los derechos reservados.</p>
     </footer>
     
 </body>
 </html>
-
 
