@@ -68,6 +68,26 @@
             background-color: #218838;
         }
 
+        /* Botón de carrito */
+        .cart-button {
+            display: inline-block;
+            padding: 16px 28px;
+            font-size: 1.4em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .cart-button:hover {
+            background-color: #0056b3;
+        }
+        .cart-button img {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
         /* Contenido principal */
         .content {
             width: 90%;
@@ -144,6 +164,14 @@
         <div class="download-container">
             <span class="version-text">Versión: v10.0.1</span>
             <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/v1.0/Mamoll.Setup.10.0.1.exe" class="download-button">Descargar Aplicación</a>
+        </div>
+        
+        <!-- Botón de carrito -->
+        <div style="margin-top: 20px;">
+            <a href="https://mamoll.mitiendanube.com/?exit_preview_theme_installation=true" class="cart-button">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito de Compras" width="30" height="30">
+                Comprar Aplicación
+            </a>
         </div>
     </header>
 
