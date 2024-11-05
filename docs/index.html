@@ -92,6 +92,24 @@
             background-color: #218838;
         }
 
+        /* Íconos de contacto */
+        .contact-icons {
+            position: absolute;
+            right: 20px;
+            top: 80px; /* Espaciado debajo del botón de carrito */
+            display: flex;
+            gap: 15px;
+        }
+        .contact-icon {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .contact-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
         /* Contenido principal */
         .content {
             width: 90%;
@@ -164,6 +182,19 @@
         <h1>Mamoll Software</h1>
         <p>Soluciones de Software para Caja y Gestión de Stock</p>
 
+        <!-- Íconos de contacto -->
+        <div class="contact-icons">
+            <a href="mailto:soporte@mamollsoftware.com" class="contact-icon" title="Contacto Técnico">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/technical-support.png" alt="Contacto Técnico">
+            </a>
+            <a href="mailto:ventas@mamollsoftware.com" class="contact-icon" title="Contacto Ventas">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/sales-performance.png" alt="Contacto Ventas">
+            </a>
+            <a href="https://www.mamollsoftware.com/documentacion" class="contact-icon" title="Documentación">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/document.png" alt="Documentación">
+            </a>
+        </div>
+
         <!-- Botón de carrito -->
         <a href="https://mamoll.mitiendanube.com/?exit_preview_theme_installation=true" class="cart-button">
             <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito de Compras" width="30" height="30">
@@ -208,10 +239,5 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Mamoll Software. Todos los derechos reservados. | <a href="mailto:contacto@mamollsoftware.com" style="color: #fff; text-decoration: underline;">Contáctanos</a></p>
-    </footer>
-
-</body>
-</html>
+    <footer
 
