@@ -24,7 +24,7 @@
         header {
             background-color: #0056b3;
             width: 100%;
-            padding: 10px 20px;
+            padding: 5x 360px;
             text-align: center;
             color: #fff;
             position: relative;
@@ -45,7 +45,7 @@
         /* Botón de carrito */
         .cart-button {
             position: absolute;
-            right: 20px;
+            left: 20px;
             top: 20px;
             display: inline-block;
             padding: 8px 20px;
@@ -156,23 +156,20 @@
             transform: translateY(-5px);
         }
         .feature-item img {
-            margin-bottom: 10px;
+            margin-bottom: 1px;
         }
 
-        /* Estilos responsive */
-        @media (max-width: 768px) {
-            .cart-button, .contact-icons {
-                display: none;
-            }
-            .features {
-                flex-direction: column;
-                align-items: center;
-            }
-            .feature-item {
-                width: 90%;
-            }
-        }
-
+   /* Estilos responsive */
+@media (max-width: 768px) {
+    /* Mover el botón de carrito al final de la página en pantallas pequeñas */
+    .cart-button {
+        position: static;
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
         /* Contenedor del botón y versión */
         .download-container {
             display: flex;
@@ -213,7 +210,6 @@
     </style>
 </head>
 <body>
-
     <!-- Encabezado -->
     <header>
         <img src="./imagenes/m.png" alt="Logo Mamoll Software">
@@ -239,30 +235,28 @@
             <a href="https://mamollsoftware.wixsite.com/mamoll-software/post/crear-usuario">Documentación</a>
         </div>
     </header>
-
     <!-- Contenido principal -->
     <div class="content">
         <h2>Características Destacadas</h2>
         <p>Explora las potentes herramientas que ofrecemos para mejorar tu gestión empresarial.</p>
         <div class="features">
             <div class="feature-item">
-                <img src="https://img.icons8.com/ios-filled/100/000000/receipt.png" alt="Gestión de Caja">
+                <img src="https://img.icons8.com/?size=100&id=68228&format=png&color=000000" alt="Gestión de Caja">
                 <h3>Gestión de Caja</h3>
                 <p>Maneja tus transacciones de forma fácil y rápida.</p>
             </div>
             <div class="feature-item">
-                <img src="https://img.icons8.com/ios-filled/100/000000/warehouse.png" alt="Control de Stock">
+                <img src="https://img.icons8.com/?size=100&id=QPrz9Dtl4cRe&format=png&color=000000" alt="Control de Stock">
                 <h3>Control de Stock</h3>
                 <p>Monitorea tu inventario y evita quiebras.</p>
             </div>
             <div class="feature-item">
-                <img src="https://img.icons8.com/ios-filled/100/000000/report.png" alt="Reportes">
+                <img src="https://img.icons8.com/?size=100&id=nlNT8ZjNGBdD&format=png&color=000000" alt="Control de Stock">
                 <h3>Reportes Detallados</h3>
                 <p>Genera reportes que te ayudarán a tomar mejores decisiones.</p>
             </div>
         </div>
     </div>
-
     <script>
         // Función para alternar la visibilidad del menú
         function toggleMenu() {
@@ -276,4 +270,3 @@
     </script>
 </body>
 </html>
-
