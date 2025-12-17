@@ -4,388 +4,938 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mamoll Software - Soluciones Innovadoras en Caja y Gestión de Stock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Estilos básicos */
+        /* Variables CSS */
+        :root {
+            --azul-primario: #0056b3;
+            --azul-oscuro: #003d7a;
+            --azul-claro: #007bff;
+            --azul-hover: #0069d9;
+            --verde-accion: #28a745;
+            --verde-hover: #218838;
+            --gris-claro: #f8f9fa;
+            --gris-medio: #6c757d;
+            --blanco: #ffffff;
+            --sombra-suave: 0 8px 30px rgba(0, 86, 179, 0.12);
+            --sombra-intensa: 0 15px 50px rgba(0, 86, 179, 0.2);
+        }
+
+        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Encabezado */
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header estilo YouTube/Facebook */
         header {
-            background-color: #0056b3;
-            width: 100%;
-            padding: 5x 360px;
-            text-align: center;
-            color: #fff;
+            background: linear-gradient(135deg, var(--azul-primario) 0%, var(--azul-oscuro) 100%);
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
             position: relative;
-            border-bottom: 5px solid #003d7a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        header img {
-            max-width: 200px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-            opacity: 0.9;
         }
 
-        /* Botón de carrito */
-        .cart-button {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            display: inline-block;
-            padding: 8px 20px;
-            font-size: 1.2em;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .cart-button img {
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-
-        /* Íconos de contacto */
-        .contact-icons {
-            position: absolute;
-            right: 60px;
-            top: 120px;
+        /* Navegación superior */
+        .top-nav {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            color: #fff;
-            background-color: #0056b3;
-            padding: 10px;
-            border-radius: 8px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 30px;
+            animation: fadeIn 0.8s ease-out;
         }
-        .contact-icon {
+
+        .logo-container {
             display: flex;
             align-items: center;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.2em;
-            transition: transform 0.3s;
-        }
-        .contact-icon img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-
-        /* Menu Hamburguesa */
-        .menu-toggle {
-            display: block; /* Cambiado a block para que esté siempre visible */
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.8em;
+            gap: 12px;
             cursor: pointer;
-            background: none;
-            border: none;
-            color: white;
         }
 
-        /* Menú desplegable para móviles */
-        .menu-dropdown {
-            display: block; /* Cambiado a block para que se muestre al iniciar */
-            position: absolute;
-            top: 90px;
-            right: 20px;
-            background-color: #0056b3;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: opacity 0.3s ease; /* Transición suave */
+        .logo-container img {
+            max-width: 50px;
+            height: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            transition: transform 0.3s ease;
         }
-        .menu-dropdown a {
+
+        .logo-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
+            color: var(--blanco);
+            font-size: 1.5em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.8em;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        /* Navegación desktop */
+        .desktop-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.primary {
+            background: var(--verde-accion);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .nav-link.primary:hover {
+            background: var(--verde-hover);
+        }
+
+        /* Menú móvil */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, var(--azul-primario) 0%, var(--azul-oscuro) 100%);
+            padding: 80px 30px 30px;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1001;
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
             display: block;
             color: white;
             text-decoration: none;
-            padding: 10px;
-            transition: background-color 0.3s;
-        }
-        .menu-dropdown a:hover {
-            background-color: #007bff;
-        }
-
-        /* Estilos para el contenido */
-        .content {
-            margin-top: 100px;
-            width: 90%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .feature-item {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 250px;
-            transition: transform 0.3s;
-        }
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-        .feature-item img {
-            margin-bottom: 1px;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1em;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
 
-   /* Estilos responsive */
-@media (max-width: 768px) {
-    /* Mover el botón de carrito al final de la página en pantallas pequeñas */
-    .cart-button {
-        position: static;
-        margin-top: 20px;
-        display: block;
-        text-align: center;
-        width: 100%;
-    }
-}
-        /* Contenedor del botón y versión */
-        .download-container {
+        .mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-left-color: var(--verde-accion);
+            transform: translateX(10px);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap; /* Para que se acomode en pantallas pequeñas */
+            transition: all 0.3s ease;
         }
 
-        /* Texto de versión */
-        .version-text {
-            font-size: 1.2em;
-            color: #ddd;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 1px solid #007bff; /* Bordes para dar contraste */
+        .close-menu:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
         }
 
-        /* Botón de descarga */
-        .download-button {
-            display: inline-block;
-            padding: 16px 28px;
+        /* Hero section */
+        .hero-section {
+            text-align: center;
+            padding: 140px 20px 80px;
+            background: linear-gradient(135deg, var(--azul-primario) 0%, var(--azul-oscuro) 100%);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 123, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
             font-size: 1.4em;
-            color: #fff;
-            background-color: #28a745;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botones de acción */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--verde-accion) 0%, #20c997 100%);
             border: none;
             border-radius: 50px;
             text-decoration: none;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
-        .download-button:hover {
-            background-color: #218838;
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
         }
 
-    </style>
-</head>
-<body>
-    <!-- Encabezado -->
-    <header>
-        <img src="./imagenes/m.png" alt="Logo Mamoll Software">
-       <p>Soluciones de Software para<br>
-   Caja y Gestión de Stock</p>
-
-        <!-- Botón de carrito -->
-        <a href="https://mamollsoftware.empretienda.com.ar/" class="cart-button">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito de Compras" width="30" height="30">
-            Comprar Aplicación
-        </a>
-        <!-- Contenedor del botón y versión -->
-        <div class="download-container">
-            <span class="version-text">Versión para Windows: v1.0.1</span>
-            <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/1.0.1/Caja.de.ventas.Setup.1.0.1.exe" class="download-button">Descargar aplicación</a>
-        </div>
-        <!-- Botón menú hamburguesa -->
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <!-- Menú desplegable -->
-        <div id="menu-dropdown" class="menu-dropdown">
-            <a href="mailto:soporte@mamollsoftware.com">Soporte Técnico</a>
-              <a href="https://mamollsoftware.empretienda.com.ar">Ventas</a>
-            <a href="https://mamollsoftware.blogspot.com/2025/10/blog-post.html">Documentación</a>
-        </div>
-    </header>
-    <!-- Contenido principal -->
-    <div class="content">
-        <h2>Características Destacadas</h2>
-        <p>Explora las potentes herramientas que ofrecemos para mejorar tu gestión empresarial.</p>
-        <div class="features">
-            <div class="feature-item">
-                <img src="https://img.icons8.com/?size=100&id=68228&format=png&color=000000" alt="Gestión de Caja">
-                <h3>Gestión de Caja</h3>
-                <p>Maneja tus transacciones de forma fácil y rápida.</p>
-            </div>
-            <div class="feature-item">
-                <img src="https://img.icons8.com/?size=100&id=QPrz9Dtl4cRe&format=png&color=000000" alt="Control de Stock">
-                <h3>Control de Stock</h3>
-                <p>Monitorea tu inventario y evita quiebras.</p>
-            </div>
-            <div class="feature-item">
-                <img src="https://img.icons8.com/?size=100&id=nlNT8ZjNGBdD&format=png&color=000000" alt="Control de Stock">
-                <h3>Reportes Detallados</h3>
-                <p>Genera reportes que te ayudarán a tomar mejores decisiones.</p>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Función para alternar la visibilidad del menú
-        function toggleMenu() {
-            const menu = document.getElementById('menu-dropdown');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'block';
-            }
+        .btn-primary:hover::before {
+            left: 100%;
         }
-    </script>
-        <!-- Sección informativa inferior -->
-    <section class="about">
-        <h2>Mamoll Software – Potencia las ventas de tu negocio</h2>
-        <p class="subtitle">Descubre nuevas oportunidades de venta y control total de tu gestión.</p>
 
-        <div class="info-grid">
-            <div>
-                <h3>Beneficios principales</h3>
-                <ul>
-                    <li>💰 <strong>Gestión de ventas:</strong> Registra tus operaciones fácilmente.</li>
-                    <li>📦 <strong>Control de stock:</strong> Mantén actualizado tu inventario.</li>
-                    <li>📊 <strong>Estadísticas y reportes:</strong> Analiza tus resultados y mejora tus decisiones.</li>
-                    <li>⚙️ <strong>Fácil integración:</strong> Funciona en distintos rubros sin complicaciones.</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>Ideal para tu negocio</h3>
-                <p>Mamoll Software se adapta a distintos sectores comerciales:</p>
-                <div class="business-types">
-                    <span>👗 Tienda de ropa</span>
-                    <span>🥤 Kiosco</span>
-                    <span>🍦 Heladería</span>
-                    <span>🧵 Mercería</span>
-                    <span>🛍️ Tiendas varias</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer elegante -->
-    <footer>
-        <p>© 2025 Mamoll Software – Innovación y tecnología para tu negocio.</p>
-        <p>
-            <a href="mailto:soporte@mamollsoftware.com">📧 soporte@mamollsoftware.com</a> |
-            <a href="https://mamollsoftware.blogspot.com">📘 Blog</a> |
-            <a href="https://mamollsoftware.empretienda.com.ar/">🛒 Tienda</a>
-        </p>
-    </footer>
-
-    <style>
-        /* Sección informativa inferior */
-        .about {
-            background: linear-gradient(180deg, #e9f2ff, #ffffff);
-            padding: 60px 20px;
-            text-align: center;
-            margin-top: 60px;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(40, 167, 69, 0.5);
         }
-        .about h2 {
-            color: #0056b3;
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-        .about .subtitle {
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
             font-size: 1.2em;
-            color: #555;
-            margin-bottom: 40px;
+            font-weight: 700;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
-        .info-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 1em;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Contenido principal */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Sección de características */
+        .features-section {
+            background: white;
+            border-radius: 30px;
+            padding: 80px 60px;
+            box-shadow: var(--sombra-suave);
+            margin-bottom: 60px;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: var(--gris-medio);
+            font-weight: 400;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            text-align: left;
+            margin-top: 50px;
         }
-        .info-grid div {
-            background: #fff;
-            border-radius: 15px;
-            padding: 25px;
-            width: 300px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
-        .info-grid h3 {
-            color: #003d7a;
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--azul-claro), var(--verde-accion));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--sombra-intensa);
+            border-color: var(--azul-claro);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(360deg) scale(1.1);
+        }
+
+        .feature-icon img {
+            width: 45px;
+            height: 45px;
+            filter: brightness(0) invert(1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--azul-oscuro);
             margin-bottom: 15px;
         }
-        .info-grid ul {
+
+        .feature-card p {
+            font-size: 1.05em;
+            color: var(--gris-medio);
+            line-height: 1.7;
+        }
+
+        /* Sección informativa */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .info-card h3 {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h3::before {
+            content: '';
+            width: 5px;
+            height: 35px;
+            background: linear-gradient(180deg, var(--azul-claro), var(--verde-accion));
+            border-radius: 10px;
+        }
+
+        .benefit-list {
             list-style: none;
+            margin: 30px 0;
         }
-        .info-grid li {
-            margin-bottom: 10px;
+
+        .benefit-list li {
+            padding: 15px 0;
+            font-size: 1.1em;
+            color: #495057;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.3s ease;
         }
-        .business-types {
+
+        .benefit-list li:hover {
+            padding-left: 10px;
+            color: var(--azul-primario);
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .business-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 25px;
         }
-        .business-types span {
-            background-color: #007bff;
+
+        .business-tag {
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro));
             color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: default;
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.2);
+        }
+
+        .business-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3);
         }
 
         /* Footer */
         footer {
-            background-color: #003d7a;
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #001f3f 100%);
             color: white;
             text-align: center;
-            padding: 25px 10px;
-            margin-top: 60px;
-            border-top: 4px solid #007bff;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
         }
-        footer a {
-            color: #9cd3ff;
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--azul-claro), var(--verde-accion), var(--azul-claro));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-text {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            margin: 0 8px;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        .footer-link:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Overlay para menú móvil */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .top-nav {
+                padding: 12px 20px;
+            }
+
+            .logo-text {
+                font-size: 1.2em;
+            }
+
+            .hero-section {
+                padding: 120px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 2.5em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .features-section {
+                padding: 50px 30px;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .logo-container img {
+                max-width: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.1em;
+            }
+
+            .hero-section {
+                padding: 100px 20px 50px;
+            }
+
+            .hero-title {
+                font-size: 2em;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+
+            .features-section {
+                padding: 40px 20px;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
         }
     </style>
+</head>
+<body>
+    <!-- Header estilo YouTube/Facebook -->
+    <header>
+        <div class="header-content">
+            <div class="top-nav">
+                <div class="logo-container">
+                    <img src="./imagenes/m.png" alt="Logo Mamoll Software">
+                    <span class="logo-text">Mamoll Software</span>
+                </div>
+                
+                <!-- Navegación desktop -->
+                <nav class="desktop-nav">
+                    <a href="mailto:soporte@mamollsoftware.com" class="nav-link">📧 Soporte</a>
+                    <a href="https://mamollsoftware.blogspot.com/2025/10/blog-post.html" class="nav-link">📚 Docs</a>
+                    <a href="https://mamollsoftware.empretienda.com.ar/" class="nav-link primary">🛒 Comprar</a>
+                </nav>
 
+                <!-- Botón menú móvil -->
+                <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menú móvil -->
+    <div class="overlay" id="overlay" onclick="toggleMobileMenu()"></div>
+    <nav class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+        <a href="mailto:soporte@mamollsoftware.com">📧 Soporte Técnico</a>
+        <a href="https://mamollsoftware.blogspot.com/2025/10/blog-post.html">📚 Documentación</a>
+        <a href="https://mamollsoftware.empretienda.com.ar/">🛒 Tienda Online</a>
+    </nav>
+
+    <!-- Hero section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Potencia tu Negocio con Tecnología</h1>
+        <p class="hero-subtitle">Sistema completo de punto de venta y gestión de inventario diseñado para impulsar el crecimiento de tu comercio</p>
+        
+        <div class="action-buttons">
+            <a href="https://github.com/MamollSoftware/AplicacionDeCaja/releases/download/1.0.1/Caja.de.ventas.Setup.1.0.1.exe" class="btn-primary">
+                <span>⬇️</span>
+                Descargar Gratis
+            </a>
+            <a href="https://mamollsoftware.empretienda.com.ar/" class="btn-secondary">
+                <span>🛒</span>
+                Comprar Licencia
+            </a>
+        </div>
+
+        <div class="version-badge">
+            <span>✨</span>
+            Versión Windows v1.0.1
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Sección de características -->
+        <section class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">Características Destacadas</h2>
+                <p class="section-subtitle">Herramientas profesionales diseñadas para optimizar tu gestión comercial</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/?size=100&id=68228&format=png&color=000000" alt="Gestión de Caja">
+                    </div>
+                    <h3>Gestión de Caja</h3>
+                    <p>Sistema intuitivo para procesar ventas rápidamente. Registra transacciones, genera tickets y controla el flujo de efectivo con facilidad.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/?size=100&id=QPrz9Dtl4cRe&format=png&color=000000" alt="Control de Stock">
+                    </div>
+                    <h3>Control de Stock</h3>
+                    <p>Monitorea tu inventario en tiempo real. Recibe alertas de stock bajo y mantén el control total de tus productos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/?size=100&id=nlNT8ZjNGBdD&format=png&color=000000" alt="Reportes">
+                    </div>
+                    <h3>Reportes Detallados</h3>
+                    <p>Analiza tus ventas con reportes completos. Toma decisiones informadas basadas en datos reales de tu negocio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección informativa -->
+        <section class="info-section">
+            <div class="info-card">
+                <h3>💎 Beneficios Principales</h3>
+                <ul class="benefit-list">
+                    <li>
+                        <span>💰</span>
+                        <div>
+                            <strong>Gestión de ventas eficiente:</strong> Registra operaciones con velocidad y precisión
+                        </div>
+                    </li>
+                    <li>
+                        <span>📦</span>
+                        <div>
+                            <strong>Control de inventario automático:</strong> Actualización en tiempo real del stock disponible
+                        </div>
+                    </li>
+                    <li>
+                        <span>📊</span>
+                        <div>
+                            <strong>Análisis avanzado:</strong> Reportes y estadísticas para optimizar tu negocio
+                        </div>
+                    </li>
+                    <li>
+                        <span>⚙️</span>
+                        <div>
+                            <strong>Fácil configuración:</strong> Empieza a vender en minutos, sin complicaciones técnicas
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🎯 Ideal para tu Negocio</h3>
+                <p style="margin-bottom: 20px; color: #6c757d; font-size: 1.05em;">
+                    Diseñado para adaptarse a diversos tipos de comercios y sectores:
+                </p>
+                <div class="business-tags">
+                    <span class="business-tag">👗 Tienda de Ropa</span>
+                    <span class="business-tag">🥤 Kiosco</span>
+                    <span class="business-tag">🍦 Heladería</span>
+                    <span class="business-tag">🧵 Mercería</span>
+                    <span class="business-tag">🛍️ Boutique</span>
+                    <span class="business-tag">📚 Librería</span>
+                    <span class="business-tag">🎨 Bazar</span>
+                    <span class="business-tag">🔧 Ferretería</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Mamoll Software</div>
+            <p class="footer-text">© 2025 Mamoll Software – Innovación y tecnología para impulsar tu negocio</p>
+            
+            <div class="footer-links">
+                <a href="mailto:soporte@mamollsoftware.com" class="footer-link">
+                    <span>📧</span> soporte@mamollsoftware.com
+                </a>
+                <a href="https://mamollsoftware.blogspot.com" class="footer-link">
+                    <span>📘</span> Blog
+                </a>
+                <a href="https://mamollsoftware.empretienda.com.ar/" class="footer-link">
+                    <span>🛒</span> Tienda Online
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menú móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        });
+
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        document.querySelectorAll('.feature-card, .info-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
-
-
-
