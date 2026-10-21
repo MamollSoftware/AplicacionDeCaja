@@ -1,2 +1,0 @@
-# AplicacionDeCaja
-Aplicación de Caja
